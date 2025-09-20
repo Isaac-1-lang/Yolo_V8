@@ -1,0 +1,12 @@
+names:
+- BIODEGRADABLE
+- CARDBOARD
+- GLASS
+- METAL
+- PAPER
+- PLASTIC
+nc: 6
+path: C:\Users\user\Documents\YEAR 2\Group projects\TERM I\WasteNet\Train\Waste-Classification-using-YOLOv8\dataset
+test: test/images
+train: train/images
+val: val/images
