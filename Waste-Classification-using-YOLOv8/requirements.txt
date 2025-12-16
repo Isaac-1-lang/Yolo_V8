@@ -24,6 +24,7 @@ psutil
 # Optional for video processing
 pafy
 youtube-dl
-
+yt-dlp
 # For model serialization
 pickle-mixin
+

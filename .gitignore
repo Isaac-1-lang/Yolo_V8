@@ -2,3 +2,5 @@ Datasets/
 dataset/
 venv/
 waste_classification_env/
+config.bat
+node_modules
