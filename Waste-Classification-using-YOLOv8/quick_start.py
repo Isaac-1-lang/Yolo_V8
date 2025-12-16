@@ -20,7 +20,7 @@ def check_python_version():
 
 def check_requirements():
     """Check if requirements.txt exists."""
-    if not Path("requirements.txt").exists():
+    if          not Path("requirements.txt").exists():
         print("❌ requirements.txt not found!")
         return False
     print("✅ requirements.txt found")

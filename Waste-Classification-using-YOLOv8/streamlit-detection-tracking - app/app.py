@@ -12,14 +12,14 @@ from category_mapper import WasteCategoryMapper
 
 # Setting page layout
 st.set_page_config(
-    page_title="Waste Classification using YOLOv8",
+    page_title="Object Classification using YOLOv8",
     page_icon="🤖",
     layout="wide",
     initial_sidebar_state="expanded"
 )
 
 # Main page heading
-st.title("🗑️ Waste Classification using YOLOv8")
+st.title("🗑️ Object Classification using YOLOv8")
 
 # Initialize category mapper
 mapper = WasteCategoryMapper()
@@ -29,7 +29,7 @@ st.markdown(f"**Classify waste into: {', '.join(desired_categories)}**")
 st.markdown("*Note: Model categories are mapped to your desired waste categories*")
 
 # Sidebar
-st.sidebar.header("ML Model Config")
+st.sidebar.header("ML Model Settings")
 
 # Model Options
 model_type = st.sidebar.radio(
@@ -69,11 +69,11 @@ if source_radio == settings.IMAGE:
                 default_image_path = str(settings.DEFAULT_IMAGE)
                 default_image = PIL.Image.open(default_image_path)
                 st.image(default_image_path, caption="Default Image",
-                         use_column_width=True)
+                         use_container_width=True)
             else:
                 uploaded_image = PIL.Image.open(source_img)
                 st.image(source_img, caption="Uploaded Image",
-                         use_column_width=True)
+                         use_container_width=True)
         except Exception as ex:
             st.error("Error occurred while opening the image.")
             st.error(ex)
@@ -84,7 +84,7 @@ if source_radio == settings.IMAGE:
             default_detected_image = PIL.Image.open(
                 default_detected_image_path)
             st.image(default_detected_image_path, caption='Detected Image',
-                     use_column_width=True)
+                     use_container_width=True)
         else:
             if st.sidebar.button('Detect Objects'):
                 res = model.predict(uploaded_image,
@@ -93,9 +93,9 @@ if source_radio == settings.IMAGE:
                 boxes = res[0].boxes
                 res_plotted = res[0].plot()[:, :, ::-1]
                 st.image(res_plotted, caption='Detected Image',
-                         use_column_width=True)
+                         use_container_width=True)
                 try:
-                    with st.expander("🔍 Detection Results"):
+                    with st.expander("Detection Results"):
                         if len(boxes) > 0:
                             # Map predictions to desired categories
                             mapped_results = mapper.map_prediction(model, res[0])

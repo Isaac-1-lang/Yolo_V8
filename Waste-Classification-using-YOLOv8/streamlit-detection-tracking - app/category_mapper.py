@@ -11,8 +11,8 @@ class WasteCategoryMapper:
             'BIODEGRADABLE': 'Organic',
             'CARDBOARD': 'Packaged', 
             'GLASS': 'Glass',
-            'METAL': 'Others',
-            'PAPER': 'Packaged',
+            'METAL': 'Not discovered',
+            'PAPER': 'Cardboard',
             'PLASTIC': 'Plastic'
         }
     
